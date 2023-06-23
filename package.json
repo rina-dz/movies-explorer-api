@@ -1,0 +1,37 @@
+{
+  "name": "movies-explorer-api",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rina-dz/movies-explorer-api.git"
+  },
+  "keywords": [],
+  "author": "Дзядзина Арина",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rina-dz/movies-explorer-api/issues"
+  },
+  "homepage": "https://github.com/rina-dz/movies-explorer-api#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "celebrate": "^15.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.43.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "express": "^4.18.2",
+    "express-winston": "^4.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.3.0",
+    "nodemon": "^2.0.22",
+    "validator": "^13.9.0",
+    "winston": "^3.9.0"
+  }
+}
