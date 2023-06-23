@@ -7,12 +7,14 @@ const { errors } = require('celebrate');
 const { routes } = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const error = require('./middlewares/error');
-// const cors = require('./middlewares/cors');
+const cors = require('./middlewares/cors');
+
+const { DB_URL } = process.env;
 
 const { PORT = 3000 } = process.env;
 const app = express();
 
-mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb', {
+mongoose.connect(DB_URL, {
   useNewUrlParser: true,
 })
   .then(() => {
@@ -25,7 +27,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb', {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use(cors);
+app.use(cors);
 
 app.use(requestLogger);
 app.use(routes);
