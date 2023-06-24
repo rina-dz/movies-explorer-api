@@ -6,8 +6,8 @@ const {
   createMovie,
   deleteMovie,
 } = require('../controllers/movies');
-
 const IncorrectDataErr = require('../utils/errors/incorrect-data-err');
+// const { createMovieValidator, deleteMovieValidator } = require('../middlewares/validators');
 
 const validateURL = (value) => {
   if (!validator.isURL(value, { require_protocol: true })) {

@@ -4,6 +4,7 @@ const {
   getUserInfo,
   updateUserInfo,
 } = require('../controllers/users');
+// const updateUserValidator = require('../middlewares/validators');
 
 users.get('/me', getUserInfo);
 users.patch(

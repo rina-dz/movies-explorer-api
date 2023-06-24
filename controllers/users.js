@@ -32,14 +32,25 @@ module.exports.getUserInfo = (req, res, next) => {
 module.exports.updateUserInfo = (req, res, next) => {
   const { name, email } = req.body;
 
-  User.findByIdAndUpdate(req.user._id, { name, email }, { new: true, runValidators: true })
-    .then((user) => res.send(user))
-    .catch((err) => {
-      if (err.name === 'ValidationError') {
-        return next(new IncorrectDataErr('Переданы некорректные данные при изменении информации.'));
+  User.findOne({ email })
+    .then((user) => {
+      if (user && String(user._id) !== req.user) {
+        return next(new UniqueError('Данный email уже занят.'));
       }
-      return next(err);
-    });
+      return User.findByIdAndUpdate(
+        req.user._id,
+        { name, email },
+        { new: true, runValidators: true },
+      )
+        .then((newUser) => res.send(newUser))
+        .catch((err) => {
+          if (err.name === 'ValidationError') {
+            return next(new IncorrectDataErr('Переданы некорректные данные при изменении информации.'));
+          }
+          return next(err);
+        });
+    })
+    .catch(next);
 };
 
 // регистрация пользователя
