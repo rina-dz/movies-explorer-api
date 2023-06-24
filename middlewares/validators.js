@@ -9,14 +9,14 @@ const validateURL = (value) => {
   return value;
 };
 
-module.exports.updateUserValidator = celebrate({
+const updateUserValidator = celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
     email: Joi.string().required().email(),
   }),
 });
 
-module.exports.createMovieValidator = celebrate({
+const createMovieValidator = celebrate({
   body: Joi.object().keys({
     country: Joi.string().required(),
     director: Joi.string().required(),
@@ -32,23 +32,31 @@ module.exports.createMovieValidator = celebrate({
   }),
 });
 
-module.exports.deleteMovieValidator = celebrate({
+const deleteMovieValidator = celebrate({
   params: Joi.object().keys({
     movieId: Joi.string().length(24).hex().required(),
   }),
 });
 
-module.exports.loginValidator = celebrate({
+const loginValidator = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required(),
   }),
 });
 
-module.exports.createUserValidator = celebrate({
+const createUserValidator = celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
     email: Joi.string().required().email(),
     password: Joi.string().required(),
   }),
 });
+
+module.exports = {
+  updateUserValidator,
+  createMovieValidator,
+  deleteMovieValidator,
+  loginValidator,
+  createUserValidator,
+};
