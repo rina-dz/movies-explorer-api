@@ -4,6 +4,8 @@ const allowedCors = [
   'https://api.movies-explorer.rindz.nomoreparties.sbs',
   'https://localhost:3000',
   'https://web.postman.co',
+  'http://movies-explorer.rindz.nomoredomains.work',
+  'https://movies-explorer.rindz.nomoredomains.work',
 ];
 
 module.exports = (req, res, next) => {
