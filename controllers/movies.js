@@ -7,7 +7,6 @@ const AccessError = require('../utils/errors/access-err');
 
 // возвращает все сохранённые текущим пользователем фильмы
 module.exports.getSavedMovies = (req, res, next) => {
-  // возвращает все фильмсы, а не одного пользователя
   Movie.find({ owner: req.user })
     .then((movies) => res.send({ data: movies }))
     .catch(next);
