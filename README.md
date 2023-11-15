@@ -21,11 +21,9 @@ Node.js, express.js, MongoDB, Mongoose
 
 Адрес репозитория front-end части: https://github.com/rina-dz/movies-explorer-frontend
 
-IP 158.160.99.204
 
-Front-end http://movies-explorer.rindz.nomoredomains.work
 
-Back-end https://api.movies-explorer.rindz.nomoreparties.sbs
+Front-end: https://movies-explorer-frontend-alpha-eight.vercel.app/
 
 Макет Figma: https://disk.yandex.ru/d/WQZlZHfaMp3nhQ
 
